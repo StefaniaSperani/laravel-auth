@@ -2,6 +2,9 @@
 
 @section('content')
 
+<div class="container">
+
+
 <h1>Create Post</h1>
 
         {{-- <div>
@@ -15,7 +18,7 @@
             </div>
             @endif
         </div> --}}
-        <div class="row bg-white">
+        <div class="row bg-transparent">
             <div class="col-12">
                 <form action="{{route('admin.projects.store')}}" method="POST" enctype="multipart/form-data" class="p-4">
                     @csrf
@@ -42,5 +45,5 @@
                 </form>
             </div>
         </div>
-
+    </div>
 @endsection

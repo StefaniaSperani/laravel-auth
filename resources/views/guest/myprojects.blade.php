@@ -3,8 +3,8 @@
 @section('content')
 
 <div class="container">
-
-        <table class="table table-striped">
+<h1>My Projects!</h1>
+        <table class="table mytable">
             <thead>
             <tr>
                 <th scope="col">#</th>

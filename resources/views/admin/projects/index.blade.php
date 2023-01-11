@@ -10,7 +10,7 @@
         {{ session()->get('message') }}
     </div>
     @endif
-    <table class="table table-striped">
+    <table class="table mytable">
         <thead>
         <tr>
             <th scope="col">#</th>
@@ -31,7 +31,7 @@
                         <form action="{{route('admin.projects.destroy',  $project->slug)}}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="delete-button btn btn-danger ms-3" data-item-title="{{ $project->title}}"><i class="fa-solid fa-trash-can"></i></button>
+                        <button type="submit" class="delete-button btn btn-secondary ms-3" data-item-title="{{ $project->title}}"><i class="fa-solid fa-trash-can"></i></button>
                     </form>
                     </td>
                 </tr>

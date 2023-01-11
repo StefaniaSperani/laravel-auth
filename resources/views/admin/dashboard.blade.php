@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+@include('partials.sidebar')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card mycard">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
@@ -15,9 +16,9 @@
                     @endif
 
                     {{ __('You are logged in!') }}
-
-                    <button class="btn btn-danger">
-                        <a class="nav-link mylink" href="{{url('admin/projects') }}">{{ __('Projects') }}</a>
+                    <br>
+                    <button class="btn btn-danger mylink my-2">
+                        <a class="nav-link " href="{{url('admin/projects') }}">{{ __('Projects') }}</a>
                     </button>
                 </div>
             </div>

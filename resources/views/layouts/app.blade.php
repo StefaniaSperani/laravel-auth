@@ -23,7 +23,7 @@
 <body>
     <div id="app">
         @include('partials.header')
-        <main class="">
+        <main class="container-fluid">
             @yield('content')
         </main>
     </div>

@@ -16,7 +16,7 @@
             @endif
         </div> --}}
         <h1>Edit Post: {{$project->title}}</h1>
-        <div class="row bg-white">
+        <div class="row bg-transparent">
             <div class="col-12">
                 <form action="{{route('admin.projects.update', $project->slug)}}" method="POST" enctype="multipart/form-data" class="p-4">
                     @csrf
@@ -44,8 +44,8 @@
                             @enderror
                         </div>
                     </div>
-                        <button type="submit" class="btn btn-success">Submit</button>
-                        <button type="reset" class="btn btn-primary">Reset</button>
+                        <button type="submit" class="btn btn-danger mt-2">Submit</button>
+                        <button type="reset" class="btn btn-secondary mt-2">Reset</button>
                 </form>
             </div>
         </div>

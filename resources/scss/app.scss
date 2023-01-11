@@ -8,31 +8,60 @@ body{
     font-family: 'Roboto', sans-serif;
     width: 100%;
     height: 100vh;
-    background-image: url(../img/blurry-gradient-haikei.svg);
+    background-image: url(../img/blurry-gradient-haikei.png);
     background-repeat: no-repeat;
     background-size: cover;
-    color: $orange;
+    background-attachment: fixed;
+    color: $white;
 
-    nav{
+    main{
+        margin-top: 100px;
+    }
+    .mynavbar{
+        width: 100%;
         position: fixed;
-        background-color: rgba(88, 24, 69, 0.521);
+        top: 0;
+        left: 0;
+        background-color: rgba(74, 57, 173, 0.404);
         box-shadow: rgb(255, 255, 255) 0px 10px 20px -10px;
         backdrop-filter: blur(5px);
-        .mylink{
-            color: $light-red;
-            &:hover{
-                color: #fff;
-            }
+    }
+
+    .mylink{
+        color: lightblue;
+        &:hover{
+            color: #fff;
         }
     }
 
     h1{
         color: $light-red;
-        text-shadow: 2px 2px 5px $white;
+        // text-shadow: 2px 2px 5px $white;
+        // border: 1px solid black;
+        color: lightblue;
+        -webkit-text-stroke: 1px rgb(0, 0, 0);
     }
 
     .mycard{
         background-color: transparent;
         border: 1px solid $light-red;
+        .card-header{
+            border-bottom: 1px solid $light-red;
+        }
+    }
+
+    .btn-danger{
+        background-color: rgb(10, 15, 87);
+        border: 1px solid #fff;
+        &:hover{
+            background-color: lightblue;
+            color: $black;
+            border: 1px solid $black;
+        }
+        
+    }
+
+    .mytable{
+        color: lightblue;
     }
 }
