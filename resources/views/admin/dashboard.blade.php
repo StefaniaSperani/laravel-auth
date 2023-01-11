@@ -15,6 +15,10 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+
+                    <button class="btn btn-danger">
+                        <a class="nav-link mylink" href="{{url('admin/projects') }}">{{ __('Projects') }}</a>
+                    </button>
                 </div>
             </div>
         </div>

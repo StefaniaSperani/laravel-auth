@@ -22,6 +22,11 @@ Route::get('/', function () {
     return view('guest.welcome');
 });
 
+Route::get('/projects', function () {
+    return view('guest.projects');
+});
+
+
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreProjectRequest;
 use Illuminate\Http\Request;
+use App\Http\Requests\UpdateProjectRequest;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Project;
 
 class ProjectController extends Controller
@@ -34,9 +37,18 @@ class ProjectController extends Controller
     *
     //  * @param  \Illuminate\Http\Request  $request
     */
-    public function store(Request $request)
+    public function store(StoreProjectRequest $request)
     {
-        //
+        $data = $request->validated();
+        $slug = Project::generateSlug($request->title);
+        $data['slug'] = $slug;
+        // if ($request->hasFile('cover_image')) {
+        //     $path = Storage::disk('public')->put('post_images', $request->cover_image);
+        //     $data['cover_image'] = $path;
+        // }
+
+        $new_post = Project::create($data);
+        return redirect()->route('admin.projects.show', $new_post->slug);
     }
 
     /**
@@ -46,7 +58,7 @@ class ProjectController extends Controller
     */
     public function show(Project $project)
     {
-        return view('admin.projects.show');
+        return view('admin.projects.show', compact('project'));
     }
 
     /**
@@ -56,7 +68,7 @@ class ProjectController extends Controller
     */
     public function edit(Project $project)
     {
-        return view('admin.projects.edit');
+        return view('admin.projects.edit', compact('project'));
     }
 
     /**
@@ -66,9 +78,21 @@ class ProjectController extends Controller
     //  * @param  int  $id
     //  * @return \Illuminate\Http\Response
     */
-    public function update(Request $request, $id)
+    public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        $data = $request->validated();
+        $slug = Project::generateSlug($request->title);
+        $data['slug'] = $slug;
+        // if($request->hasFile('cover_image')){
+        //     if ($project->cover_image) {
+        //         Storage::delete($project->cover_image);
+        //     }
+
+        //     $path = Storage::disk('public')->put('project_images', $request->cover_image);
+        //     $data['cover_image'] = $path;
+        // }
+        $project->update($data);
+        return redirect()->route('admin.projects.index')->with('message', "$project->title updated successfully");
     }
 
     /**
@@ -77,8 +101,9 @@ class ProjectController extends Controller
     //  * @param  int  $id
     //  * @return \Illuminate\Http\Response
     */
-    public function destroy($id)
+    public function destroy(Project $project)
     {
-        //
+        $project->delete();
+        return redirect()->route('admin.projects.index')->with('message', "$project->title deleted successfully");
     }
 }
