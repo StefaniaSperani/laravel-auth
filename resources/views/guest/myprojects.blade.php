@@ -22,6 +22,5 @@
             @endforeach
             </tbody>
         </table>
-        {{-- @include('partials.admin.modal-delete') --}}
     </div>
 @endsection

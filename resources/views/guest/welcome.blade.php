@@ -6,7 +6,7 @@
         <h1 class="display-5 fw-bold">
             Stefania Sperani: My Portfolio!
         </h1>
-        <button class="btn btn-danger btn-lg" type="button"><a class="nav-link mylink" href="{{url('/projects') }}">{{ __('Discover') }}</a></button>
+        <button class="btn btn-danger btn-lg" type="button"><a class="nav-link mylink" href="{{url('/myprojects') }}">{{ __('Discover') }}</a></button>
     </div>
 </div>
 

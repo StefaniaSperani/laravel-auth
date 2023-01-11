@@ -32,12 +32,12 @@
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="delete-button btn btn-danger ms-3" data-item-title="{{ $project->title}}"><i class="fa-solid fa-trash-can"></i></button>
-                        </form>
+                    </form>
                     </td>
                 </tr>
         @endforeach
         </tbody>
     </table>
-    {{-- @include('partials.admin.modal-delete') --}}
+    @include('partials.modal-delete')
 </div>
 @endsection

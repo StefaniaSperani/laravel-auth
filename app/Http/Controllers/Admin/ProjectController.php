@@ -15,6 +15,14 @@ class ProjectController extends Controller
      * Display a listing of the resource.
      *
      */
+
+    public function guestView()
+    {
+        $projects = Project::all();
+
+        return view('guest/myprojects', compact('projects'));
+    }
+
     public function index()
     {
         $projects = Project::all();
@@ -42,13 +50,13 @@ class ProjectController extends Controller
         $data = $request->validated();
         $slug = Project::generateSlug($request->title);
         $data['slug'] = $slug;
-        // if ($request->hasFile('cover_image')) {
-        //     $path = Storage::disk('public')->put('post_images', $request->cover_image);
-        //     $data['cover_image'] = $path;
-        // }
+        if ($request->hasFile('cover_image')) {
+            $path = Storage::disk('public')->put('project_images', $request->cover_image);
+            $data['cover_image'] = $path;
+        }
 
-        $new_post = Project::create($data);
-        return redirect()->route('admin.projects.show', $new_post->slug);
+        $new_project = Project::create($data);
+        return redirect()->route('admin.projects.show', $new_project->slug);
     }
 
     /**
@@ -83,14 +91,14 @@ class ProjectController extends Controller
         $data = $request->validated();
         $slug = Project::generateSlug($request->title);
         $data['slug'] = $slug;
-        // if($request->hasFile('cover_image')){
-        //     if ($project->cover_image) {
-        //         Storage::delete($project->cover_image);
-        //     }
+        if ($request->hasFile('cover_image')) {
+            if ($project->cover_image) {
+                Storage::delete($project->cover_image);
+            }
 
-        //     $path = Storage::disk('public')->put('project_images', $request->cover_image);
-        //     $data['cover_image'] = $path;
-        // }
+            $path = Storage::disk('public')->put('project_images', $request->cover_image);
+            $data['cover_image'] = $path;
+        }
         $project->update($data);
         return redirect()->route('admin.projects.index')->with('message', "$project->title updated successfully");
     }

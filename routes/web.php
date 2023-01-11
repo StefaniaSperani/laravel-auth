@@ -22,9 +22,7 @@ Route::get('/', function () {
     return view('guest.welcome');
 });
 
-Route::get('/projects', function () {
-    return view('guest.projects');
-});
+Route::get('/myprojects', [ProjectController::class, 'guestView']);
 
 
 // Route::get('/dashboard', function () {
