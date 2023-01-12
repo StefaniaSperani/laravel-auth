@@ -16,6 +16,7 @@
                 <div class="right">
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora temporibus, dicta nemo aliquam totam nisi deserunt soluta quas voluptatum ab beatae praesentium necessitatibus minus, facilis illum rerum officiis accusamus dolores!</p>
                 </div>
+                <h3 class="text-uppercase">My socials!</h3>
                 <a href="https://github.com/StefaniaSperani" class="text-light"><i class="fa-brands fa-github fa-xl"></i></a>
             </div>
 
