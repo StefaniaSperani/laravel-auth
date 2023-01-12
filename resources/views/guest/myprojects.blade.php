@@ -7,17 +7,17 @@
         <table class="table mytable">
             <thead>
             <tr>
-                <th scope="col">#</th>
                 <th scope="col">Title</th>
                 <th scope="col">Content</th>
+                <th scope="col">Thumb</th>
             </tr>
             </thead>
             <tbody>
             @foreach($projects as  $project)
                     <tr>
-                        <th scope="row">{{ $project->id}}</th>
                         <td><a href="{{route('showguest', ['slug'=>$project->slug])}}" title="View Post">{{ $project->title}}</a></td>
-                        <td>{{Str::limit( $project->content,100)}}</td>
+                        <td>{{Str::limit( $project->content,50)}}</td>
+                        <td><img src="{{ asset('storage/' . $project->cover_image) }}" class="img-fluid" width="150px"></td>
                     </tr>
             @endforeach
             </tbody>
