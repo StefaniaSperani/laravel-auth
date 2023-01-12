@@ -69,8 +69,11 @@ class ProjectController extends Controller
         return view('admin.projects.show', compact('project'));
     }
 
-    public function showGuest(Project $project)
+    public function showGuest(Request $request)
     {
+        // dd($request->slug);
+        $project = Project::where('slug', $request->slug)->first();
+
         return view('guest.showguest', compact('project'));
     }
 

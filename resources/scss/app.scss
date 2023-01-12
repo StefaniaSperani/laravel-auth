@@ -42,6 +42,11 @@ body{
         -webkit-text-stroke: 1px rgb(0, 0, 0);
     }
 
+    .left>img{
+        border-radius: 50%;
+        border: 2px solid $white;
+    }
+
     .mycard{
         background-color: transparent;
         border: 1px solid $light-red;

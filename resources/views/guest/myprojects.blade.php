@@ -16,7 +16,7 @@
             @foreach($projects as  $project)
                     <tr>
                         <th scope="row">{{ $project->id}}</th>
-                        <td><a href="{{route('showguest', $project->slug)}}" title="View Post">{{ $project->title}}</a></td>
+                        <td><a href="{{route('showguest', ['slug'=>$project->slug])}}" title="View Post">{{ $project->title}}</a></td>
                         <td>{{Str::limit( $project->content,100)}}</td>
                     </tr>
             @endforeach
