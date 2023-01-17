@@ -7,7 +7,7 @@
 
     <h2>{{$project->title}}</h2>
         <p>{{$project->content}}</p>
-        <p>{{$project->type->name}}</p>
+        <p>{{$project->type->name?? ''}}</p>
     
         <img src="{{ asset('storage/' . $project->cover_image) }}" class="img-fluid">
     

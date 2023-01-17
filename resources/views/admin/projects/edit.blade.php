@@ -44,6 +44,7 @@
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                             </div>
+                        </div>
                         <div class="d-flex">
                         <div class="media me-4">
                             <img class="shadow" width="150" src="{{asset('storage/' . $project->cover_image)}}" alt="{{$project->title}}">

@@ -105,6 +105,8 @@ class ProjectController extends Controller
     */
     public function update(UpdateProjectRequest $request, Project $project)
     {
+        $userId = Auth::id();
+        $data['user_id'] = $userId;
         $data = $request->validated();
         $slug = Project::generateSlug($request->title);
         $data['slug'] = $slug;
