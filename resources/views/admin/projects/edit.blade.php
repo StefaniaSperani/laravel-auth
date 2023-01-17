@@ -32,6 +32,18 @@
                         <label for="content" class="form-label">Content</label>
                         <textarea class="form-control" id="content" name="content">{{old('content', $project->content)}}</textarea>
                         </div>
+                        <div class="mb-3">
+                            <label for="type_id" class="form-label">Seleziona tipo</label>
+                            <select name="type_id" id="type_id" class="form-control @error('type_id') is-invalid @enderror">
+                                <option value="">Select type</option>
+                                @foreach ($types as $type)
+                                    <option value="{{$type->id}}" {{ $type->id == old('type_id', $project->type->id?? '') ? 'selected' : '' }}>{{$type->name}}</option>
+                                @endforeach
+                            </select>
+                            @error('type_id')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                            </div>
                         <div class="d-flex">
                         <div class="media me-4">
                             <img class="shadow" width="150" src="{{asset('storage/' . $project->cover_image)}}" alt="{{$project->title}}">

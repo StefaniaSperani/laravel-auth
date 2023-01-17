@@ -31,9 +31,9 @@ class Project extends Model
         return $this->belongsTo(Type::class);
     }
 
-    public function tags(): BelongsToMany
-    {
-        return $this->belongsToMany(Tag::class);
-    }
+// public function tags(): BelongsToMany
+// {
+//     return $this->belongsToMany(Tag::class);
+// }
 
 }

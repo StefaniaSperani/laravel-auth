@@ -15,7 +15,9 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">Title</th>
+            <th scope="col">User ID</th>
             <th scope="col">Content</th>
+            <th scope="col">Type</th>
             <th scope="col">Edit</th>
             <th scope="col">Delete</th>
         </tr>
@@ -25,7 +27,9 @@
                 <tr>
                     <th scope="row">{{ $project->id}}</th>
                     <td><a href="{{route('admin.projects.show', $project->slug)}}" title="View Post">{{ $project->title}}</a></td>
+                    <td>{{$project->user_id}}</td>
                     <td>{{Str::limit( $project->content,100)}}</td>
+                    <td>{{$project->type ? $project->type->name : 'Senza categoria'}}</td>
                     <td><a class="link-secondary" href="{{route('admin.projects.edit',  $project->slug)}}" title="Edit Post"><i class="fa-solid fa-pen"></i></a></td>
                     <td>
                         <form action="{{route('admin.projects.destroy',  $project->slug)}}" method="POST">
