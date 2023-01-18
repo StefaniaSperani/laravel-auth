@@ -1,5 +1,7 @@
 @use './partials/variables' as *;
 
+
+$danger: rgb(10, 15, 87);
 @import '~bootstrap/scss/bootstrap';
 
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
@@ -60,7 +62,7 @@ body{
     }
 
     .btn-danger{
-        background-color: rgb(10, 15, 87);
+        // background-color: rgb(10, 15, 87);
         border: 1px solid #fff;
         font-weight: bold;
         margin-bottom: 5px;
