@@ -22,6 +22,6 @@
             @endforeach
             </tbody>
         </table>
-        {{ $projects->links('vendor.pagination.bootstrap-5') }}
+        {{-- {{ $projects->links('vendor.pagination.bootstrap-5') }} --}}
     </div>
 @endsection
